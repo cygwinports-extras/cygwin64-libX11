@@ -1,0 +1,11 @@
+--- origsrc/libX11-1.5.0/src/util/Makefile.am	2012-06-02 01:37:19.000000000 -0500
++++ src/libX11-1.5.0/src/util/Makefile.am	2013-03-14 01:31:04.012471400 -0500
+@@ -8,6 +8,8 @@ makekeys_CFLAGS = \
+ makekeys_CPPFLAGS = \
+ 	-I$(top_srcdir)/include
+ 
++makekeys_LINK = $(CCLD) $(makekeys_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
++
+ CC = @CC_FOR_BUILD@
+ CPPFLAGS = @CPPFLAGS_FOR_BUILD@
+ CFLAGS = @CFLAGS_FOR_BUILD@

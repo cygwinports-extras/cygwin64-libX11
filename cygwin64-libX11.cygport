@@ -1,0 +1,22 @@
+CROSS_HOST="x86_64-pc-cygwin"
+ORIG_PN="libX11"
+inherit cross xorg
+
+NAME="cygwin64-libX11"
+VERSION=1.5.0
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="X.Org X11 core library for Cygwin 64bit toolchain"
+
+PATCH_URI="1.4-font-matching.patch
+	   1.5.0-cross-compile.patch"
+
+CYGCONF_ARGS="--disable-specs --without-launchd"
+
+src_install() {
+	cd ${B}
+	cyginstall libman_DATA= fileman_DATA= dist_X11_DATA= x11data_DATA= \
+		x11locale_DATA= nobase_x11locale_DATA= nobase_dist_x11locale_DATA=
+}
+
+KEEP_LA_FILES="none"
